@@ -6,8 +6,17 @@ import glob
 import os
 import sys
 
-import mmh3
 import varint
+
+try:
+    import mmh3
+except ImportError:
+    import imohash.pymmh3 as mmh3
+    raise ImportWarning("WARNING: Unable to import mmh3 package.\n"
+                        "Please install it using: 'pip install mmh3'\n"
+                        "Alternatively you can catch this 'ImportWarning' exception\n"
+                        "and py-imohash will use the pure python implementation pymmh3\n"
+                        "which is much slower that mmh3 - but better portable.")
 
 SAMPLE_THRESHOLD = 128 * 1024
 SAMPLE_SIZE = 16 * 1024
