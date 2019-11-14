@@ -55,8 +55,7 @@ setup(
     ],
     keywords='hash hashing imohash',
     packages=find_packages(),
-    install_requires=['mmh3 >= 2.5.1',
-                      'varint >= 1.0.2'],
+    install_requires=['varint >= 1.0.2'],
     entry_points={
         'console_scripts': [
             'imosum=imohash.imohash:imosum',
